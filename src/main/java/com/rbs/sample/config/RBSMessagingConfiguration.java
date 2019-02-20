@@ -34,6 +34,7 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.support.destination.JndiDestinationResolver;
 import org.springframework.jndi.JndiObjectFactoryBean;
 import org.springframework.jndi.JndiTemplate;
+import org.springframework.web.client.RestTemplate;
 
 
 
@@ -172,6 +173,10 @@ public class RBSMessagingConfiguration {
 	public JmsTemplate jmsTemplate(@Qualifier("jmsConnectionFactory") CachingConnectionFactory jmsConnectionFactory) {
 		JmsTemplate jmsTemplate = new JmsTemplate(jmsConnectionFactory);
 		return jmsTemplate;
+	}
+	@Bean
+	public RestTemplate restTemplate() {
+		return new RestTemplate();
 	}
 
 }
