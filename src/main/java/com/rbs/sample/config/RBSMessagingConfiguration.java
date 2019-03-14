@@ -22,7 +22,6 @@ import javax.jms.ConnectionFactory;
 import javax.naming.Context;
 import javax.naming.NamingException;
 
-
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -174,9 +173,11 @@ public class RBSMessagingConfiguration {
 		JmsTemplate jmsTemplate = new JmsTemplate(jmsConnectionFactory);
 		return jmsTemplate;
 	}
+	
 	@Bean
 	public RestTemplate restTemplate() {
 		return new RestTemplate();
 	}
+
 
 }
