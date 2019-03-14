@@ -25,7 +25,7 @@ public class RBSSampleController {
 	public String testRest() {
 		List<Recordings> recordings = rbsdao.getRecordings();
 		System.out.println(recordings);
-		return "Success";
+		return "Success" + recordings;
 	}
 
 }
