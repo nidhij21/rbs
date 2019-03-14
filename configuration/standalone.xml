@@ -155,7 +155,7 @@
                 </datasource>
               
                 <datasource jndi-name="java:/OPENSHIFTPOC" pool-name="OPENSHIFTPOC" enabled="true" use-ccm="true">
-                    <connection-url>jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(LOAD_BALANCE=YES)(FAILOVER=YES)(ADDRESS=(PROTOCOL=tcp)(HOST=10.67.180.100)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=dst)(SERVER=DEDICATED)))</connection-url>
+                    <connection-url>jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(LOAD_BALANCE=YES)(FAILOVER=YES)(ADDRESS=(PROTOCOL=tcp)(HOST=10.67.180.1011)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=dst)(SERVER=DEDICATED)))</connection-url>
                     <driver>oracleDriver</driver>
                     <pool>
                         <min-pool-size>15</min-pool-size>
