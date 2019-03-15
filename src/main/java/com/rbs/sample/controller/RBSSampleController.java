@@ -19,6 +19,24 @@ public class RBSSampleController {
 	RestTemplate restTemplate;
 	@Autowired
 	RBSDAO rbsdao;
+	@Autowired
+	JmsTemplate jmsTemplate;
+
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	public String generateBrokerDocument() {
+		try {
+			jmsTemplate.send("BrokerGenerationQueue", new MessageCreator() {
+			      @Override
+			      public Message createMessage(Session session) throws JMSException {
+			          return session.createTextMessage("Test");
+			      }
+			  });
+		} catch (JmsException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "Test";
+	}
 	
 	
 	@RequestMapping(value = "/getRecordings", method = RequestMethod.GET)
