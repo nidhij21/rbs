@@ -1,7 +1,14 @@
 package com.rbs.sample.controller;
 
 import java.util.List;
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.Session;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.JmsException;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
