@@ -1,16 +1,16 @@
 package com.rbs.sample.controller;
 
 import java.util.List;
+
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jms.JmsException;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,9 +25,11 @@ public class RBSSampleController {
 	@Autowired
 	RestTemplate restTemplate;
 	@Autowired
-	RBSDAO rbsdao;
-	@Autowired
+	RBSDAO rbsdao;@Autowired
 	JmsTemplate jmsTemplate;
+	
+	@Value("${jms.naming.provider.port}")
+	private String jmsNamingProviderPort;
 
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public String generateBrokerDocument() {
@@ -52,5 +54,12 @@ public class RBSSampleController {
 		System.out.println(recordings);
 		return "Success" + recordings;
 	}
+	
+	@RequestMapping(value = "/getPort", method = RequestMethod.GET)
+	public String getPort() {
+		
+		return "Success" + jmsNamingProviderPort;
+	}
 
 }
+ 
