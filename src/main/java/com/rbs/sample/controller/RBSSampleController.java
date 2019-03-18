@@ -8,6 +8,7 @@ import javax.jms.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.jms.JmsException;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
@@ -60,6 +61,15 @@ public class RBSSampleController {
 		
 		return "Success" + jmsNamingProviderPort;
 	}
+	
+	@RequestMapping(value = "/getRbsPort", method = RequestMethod.GET)
+	public String getRbsPort() {
+		ResponseEntity<String> response = restTemplate.getForEntity("rbs/rbs/test1", String.class);
+		System.out.println(response.getBody());
+		
+		return "Success: " + response.getBody();
+	}
 
 }
+ 
  
