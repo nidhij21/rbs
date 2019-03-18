@@ -64,7 +64,7 @@ public class RBSSampleController {
 	
 	@RequestMapping(value = "/getRbsPort", method = RequestMethod.GET)
 	public String getRbsPort() {
-		ResponseEntity<String> response = restTemplate.getForEntity("rbs/rbs/test1", String.class);
+		ResponseEntity<String> response = restTemplate.getForEntity("rbs/rbs/getPort", String.class);
 		System.out.println(response.getBody());
 		
 		return "Success: " + response.getBody();
